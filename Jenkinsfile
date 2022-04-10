@@ -1,4 +1,10 @@
 pipeline{
+    environment
+    {
+        registry = "amit1197/scientific_calculator"
+        registryCredential = 'docker-creds'
+        dockerImage = ' '
+    }
      agent any
      stages
      {
@@ -21,5 +27,28 @@ pipeline{
           sh "mvn test"
           }
           }
+          stage("step4 build docker image")
+                    {
+                        steps
+                        {
+                            script
+                                {
+                                    dockerImage = docker.build registry + ":latest"
+                                }
+                        }
+                    }
+          stage("step5 push docker image to dockerhub")
+                              {
+                                  steps
+                                  {
+                                      script
+                                          {
+                                              docker.withRegistry( '', registryCredential)
+                                              {
+                                                dockerImage.push()
+                                              }
+                                          }
+                                  }
+                              }
      }
   }

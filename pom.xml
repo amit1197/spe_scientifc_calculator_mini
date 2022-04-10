@@ -14,7 +14,7 @@
     <name>spe_scientifc_calculator_mini</name>
     <description>spe_scientifc_calculator_mini</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>18</java.version>
     </properties>
     <dependencies>
         <dependency>
