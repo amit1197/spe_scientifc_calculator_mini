@@ -50,5 +50,17 @@ pipeline{
                                           }
                                   }
                               }
+          stage('Step 6 Ansible image deploy'){
+                      steps{
+                          ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'ansible-docker-deploy/inventory', playbook: 'ansible-docker-deploy/deploy-image.yml', sudoUser: null
+                          }
+                  }
+
+                  stage('Step 7 Ansible container creation'){
+                      steps{
+                          ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'ansible-docker-deploy/inventory', playbook: 'ansible-docker-deploy/create-container.yml', sudoUser: null
+                          }
+
+                  }
      }
   }
