@@ -10,6 +10,6 @@
         image: amit1197/scientific_calculator
         state: started
         ports:
-          - "8082:8081"
+          - "8081:8081"
         tty: true
         detach: true
