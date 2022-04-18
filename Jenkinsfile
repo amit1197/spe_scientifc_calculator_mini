@@ -11,6 +11,12 @@ stages
           credentialsId: "'git-creds'"
           }
           }
+          stage("step2 build maven")
+                    {
+                    steps{
+                    sh "mvn -B -DskipTests clean package"
+                    }
+                    }
 
      }
      }
