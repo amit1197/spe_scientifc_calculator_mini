@@ -1,10 +1,8 @@
 
 pipeline{
 
-environment
-    {
 
-    }
+     agent any
 stages
      {
          stage("step1 git pull"){
