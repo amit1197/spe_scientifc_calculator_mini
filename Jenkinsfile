@@ -24,6 +24,16 @@ stages
                     sh "mvn test"
                     }
                     }
+          stage("step4 build docker image")
+                              {
+                                  steps
+                                  {
+                                      script
+                                          {
+                                              dockerImage = docker.build registry + ":latest"
+                                          }
+                                  }
+                              }
 
      }
      }
