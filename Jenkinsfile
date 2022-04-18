@@ -1,8 +1,14 @@
 
 pipeline{
 
+     environment
+         {
+             registry = "amit1197/scientific_calculator"
+             registryCredential = 'docker-creds'
+             dockerImage = ' '
+         }
+          agent any
 
-     agent any
 stages
      {
          stage("step1 git pull"){
