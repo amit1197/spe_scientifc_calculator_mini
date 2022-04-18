@@ -17,6 +17,13 @@ stages
                     sh "mvn -B -DskipTests clean package"
                     }
                     }
+          stage("step3 test")
+                    {
+                    steps
+                    {
+                    sh "mvn test"
+                    }
+                    }
 
      }
      }
